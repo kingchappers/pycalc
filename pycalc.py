@@ -23,6 +23,7 @@ from PyQt5.QtWidgets import QVBoxLayout
 #partial allows you to connect signals with methods that need to take extra arguments
 from functools import partial
 
+ERROR_MSG = 'ERROR'
 
 __version__ = '0.1'
 __author__ = 'Leodanis Pozo Ramos'
@@ -124,6 +125,16 @@ class PyCalcCtrl:
                 btn.clicked.connect(partial(self._buildExpression, btnText))
 
         self._view.buttons['C'].clicked.connect(self._view.clearDisplay)
+
+# Create a Model to handle the calculator's operation
+def evaluateExpression(expression):
+    #Evaluate an expression.
+    try:
+        result = str(eval(expression, {}, {}))
+    except Exception:
+        result = ERROR_MSG
+
+    return result
 
 
 # Client code
