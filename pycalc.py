@@ -3,6 +3,7 @@
 # Filename: pycalc.py
 
 #PyCalc is a simple calculator built using Python and PyQt5.
+#https://realpython.com/python-pyqt-gui-calculator/#creating-a-calculator-with-python-and-pyqt
 
 import sys
 
@@ -118,7 +119,6 @@ class PyCalcCtrl:
         #Evaluate expressions.
         result = self._evaluate(expression=self._view.displayText())
         self._view.setDisplayText(result)
-
 
     def _buildExpression(self, sub_exp):
         #Build expression.
